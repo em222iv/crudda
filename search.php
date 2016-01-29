@@ -17,12 +17,12 @@
 			</section>
 		</article>
 		<?php endwhile; ?>
-		<nav class="pagination">
+		<!-- <nav class="pagination">
 			<ul>
 				<li><?php next_posts_link('&laquo; Older Entries') ?></li>
 				<li><?php previous_posts_link('Newer Entries &raquo;') ?></li>
 			</ul>
-		</nav>
+		</nav> -->
 		<?php else : ?>
 		<article>
 			<header>
@@ -30,6 +30,6 @@
 			</header>
 		</article>
 		<?php endif; ?>
-        <?php get_sidebar(); ?>
+
 	</section>
 <?php get_footer(); ?>

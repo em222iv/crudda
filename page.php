@@ -18,7 +18,5 @@
 			</header>
 		</article>
 		<?php endif; ?>
-
-	<?php get_sidebar(); ?>
 	</section>
 <?php get_footer(); ?>

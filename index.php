@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 	<section class="body index">
-				
+
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 			<header>
@@ -30,7 +30,12 @@
 			</header>
 		</article>
 		<?php endif; ?>
-
-	    <?php get_sidebar(); ?>
+		<div class="col l3">
+					<div id="aside">
+							<h3>Aside</h3>
+							<div class="divider"></div>
+	    				<!-- <?php get_sidebar(); ?> -->
+	 				</div>
+		</div>
 	</section>
 <?php get_footer(); ?>

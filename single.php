@@ -1,10 +1,14 @@
 <?php get_header(); ?>
+
+
 	<section class="body single">
+		<div class="col s6 offset-s6">
+
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
+
 			<header>
 				<h1><?php the_title(); ?></h1>
-				<p> <!-- edit this meta stuff? -->
+				<p>
 					<span>Posted on:</span> <?php the_time('F jS, Y'); ?>
 					<span>by</span> <?php the_author(); ?> |
 					<?php comments_popup_link('No Comments', '1 Comment', '% Comments', 'comments-link', ''); ?>
@@ -13,14 +17,17 @@
 			<section>
 				<?php the_content(); ?>
 			</section>
-			<footer> <!-- post metadata -->
+			<footer>
 				<p><?php the_tags('<span>Tags:</span> ', ', ', ''); ?></p>
-				<p><span>Posted in</span> <?php the_category(', ') ?> | 
+				<p><span>Posted in</span> <?php the_category(', ') ?> |
 				<?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></p>
 				<?php comments_template(); ?>
 			</footer>
 		</article>
+
 		<?php endwhile; ?>
+
+	</div>
 		<?php else : ?>
 		<article>
 			<header>
@@ -28,6 +35,5 @@
 			</header>
 		</article>
 		<?php endif; ?>
-	<?php get_sidebar(); ?>
 	</section>
 <?php get_footer(); ?>

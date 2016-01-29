@@ -19,7 +19,7 @@
     }
     add_action('init', 'removeHeadLinks');
 	wp_deregister_script('l10n');
-	
+
     // remove version info from head and feeds
     function complete_version_removal() {
         return '';
@@ -43,7 +43,7 @@
             //They count against the word count below, though
 			$excerpt_length = 55; //default excerpt is 55 words
 			$words = explode(' ', $text, $excerpt_length + 1);
-			
+
 			if (count($words)> $excerpt_length) {
 				array_pop($words);
 				array_push($words, '...'); //indicates "read more..."
@@ -57,7 +57,7 @@
 
     //Support for Featured Images for posts or pages
     add_theme_support( 'post-thumbnails' );
-	
+
     //Support for WP3 menus - create menus in the admin interface, then add them to widget areas in
     //the theme (like, say, the Nav widget area). Menus are not baked into this theme.
     add_theme_support( 'menus');
@@ -82,42 +82,40 @@
         'name' => 'Sidebar Widgets',
         'id'   => 'sidebar-widget-area',
         'description'   => 'These are widgets for the sidebar.',
-        //'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        //'after_widget'  => '</div>',
-        'before_widget' => '',
-        'after_widget' => '',
-        'before_title'  => '<h3>',
-        'after_title'   => '</h3>'
-    ));
-
-    register_sidebar(array(
-        'name' => 'Nav Widget Area',
-        'id'   => 'nav-widget-area',
-        'description'   => 'These are widgets for the Navigation area (use a menu!).',
-        'before_widget' => '',
-        'after_widget'  => '',
-        'before_title'  => '',
-        'after_title'   => ''
-    ));
-
-    register_sidebar(array(
-        'name' => 'Header Widget Area',
-        'id'   => 'header-widget-area',
-        'description'   => 'These are widgets for the header.',
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'before_widget' => '  <div class="card">',
         'after_widget'  => '</div>',
-        'before_title'  => '', // use h3's here?
-        'after_title'   => ''
+        'before_title'  => '<div class="card-image"><img src="//placehold.it/800x450/FF9800/EE00BB"><h5>',
+        'after_title'   => '</h5></div>',
     ));
 
-    register_sidebar(array(
-        'name' => 'Footer Widget Area',
-        'id'   => 'footer-widget-area',
-        'description'   => 'These are widgets for the footer.',
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h3>',
-        'after_title'   => '</h3>'
-    ));
+    // register_sidebar(array(
+    //     'name' => 'Search Widget Area',
+    //     'id'   => 'Search-widget-area',
+    //     'description'   => 'These are widgets for the Navigation area (use a menu!).',
+    //     'before_widget' => '',
+    //     'after_widget'  => '',
+    //     'before_title'  => '',
+    //     'className'   => 'aa'
+    // ));
+
+    // register_sidebar(array(
+    //     'name' => 'Header Widget Area',
+    //     'id'   => 'header-widget-area',
+    //     'description'   => 'These are widgets for the header.',
+    //     'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    //     'after_widget'  => '</div>',
+    //     'before_title'  => '', // use h3's here?
+    //     'after_title'   => ''
+    // ));
+    //
+    // register_sidebar(array(
+    //     'name' => 'Footer Widget Area',
+    //     'id'   => 'footer-widget-area',
+    //     'description'   => 'These are widgets for the footer.',
+    //     'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    //     'after_widget'  => '</div>',
+    //     'before_title'  => '<h3>',
+    //     'after_title'   => '</h3>'
+    // ));
 
 ?>

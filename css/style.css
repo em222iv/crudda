@@ -1,186 +1,624 @@
-/* font-face stuff first, just cuz: */
-@font-face { /* fill in font name and filenames */
-    font-family:'';
-    src: url('.eot?') format('☺'), /* keep the question mark */
-		url('.woff') format('woff'),
-		url('.ttf') format('truetype'),
-		url('.svg#xxx') format('svg'); /* replace xxx */
-	/* keep these lines */
-    font-variant: normal;
-    font-weight: normal;
-    font-style: normal;
+nav ul a,
+nav .brand-logo {
+    color: #444;
 }
 
-/* normalize.css - mostly taken from the HTML5 Boilerplate */
-/* build WITHIN this stylesheet (changing some values, etc.) rather than BELOW it */
+p {
+    line-height: 2rem;
+}
 
-/* RESET - these don't need to be changed */
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
-audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
-audio:not([controls]) { display: none; }
-[hidden] { display: none; }
-/* correct IE font-size in ems, force vertical scrollbar in none-IE, prevent iOS text size adjust h5bp.com/g */
-html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu {
-	margin: 0 0 1.5em 0; padding: 0; } /*change margins? */
-li { margin-left: 24px; } /* change margins? */
-img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
-svg:not(:root) { overflow: hidden; }
-figure { margin: 0; }
-fieldset { border: 0; margin: 0; padding: 0; }
-label { cursor: pointer; }
-legend { border: 0; *margin-left: -7px; padding: 0; }
-button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
-button, input { line-height: normal; *overflow: visible; }
-table button, table input { *overflow: auto; }
-button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; }
-input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
-input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
-input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
-button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
-textarea { overflow: auto; vertical-align: top; resize: vertical; }
-table { border-collapse: collapse; border-spacing: 0; }
-td { vertical-align: top; }
-body, div, object, iframe, header, footer, section, nav, aside, article, figure,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, li,
-form, fieldset, textarea, input { 
-    -moz-box-sizing: border-box;
+.button-collapse {
+    color: #ee6e73;
+}
+
+.parallax-container {
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255,255,255,.9);
+}
+.parallax-container .section {
+    width: 100%;
+}
+
+@media only screen and (max-width : 992px) {
+    .parallax-container .section {
+        position: absolute;
+        top: 40%;
+    }
+    #index-banner .section {
+        top: 10%;
+    }
+}
+
+@media only screen and (max-width : 600px) {
+    #index-banner .section {
+        top: 0;
+    }
+}
+
+
+.icon-block {
+    padding: 0 15px;
+}
+
+footer.page-footer {
+    margin: 0;
+}
+
+
+
+
+.parallax img
+{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax-container
+{
+    color: black;
+}
+@media only screen and (max-width : 600px) {
+    .parallax-container
+    {
+        color: white;
+    }
+}
+nav a.button-collapse
+{
+    color:black;
+}
+.purple.lighten-1 {
+    background-color: #CC0066 !important;
+}
+.teal-text.text-lighten-2 {
+    color: #CC0066 !important;
+}
+.share-buttons{
+    list-style: none;
+}
+
+.share-buttons li{
+    display: inline;
+}
+nav
+{
+    overflow: visible;
+}
+nav li a {
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+nav .orange {
+  z-index: 1000;
+}
+
+#morphsearch {
+  z-index: 10;
+  margin:auto;
+}
+.morphsearch {
+    width: 200px;
+    min-height: 40px;
+    background: #f1f1f1;
+    position: absolute;
+    z-index: 10000;
+    top: 50px;
+    right: 50px;
+    -webkit-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+    -webkit-transition-property: min-height, width, top, right;
+    transition-property: min-height, width, top, right;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.morphsearch.open {
+    width: 100%;
+    min-height: 100%;
+    top: 0px;
+    right: 0px;
+}
+
+.morphsearch-form {
+    width: 100%;
+    height: 40px;
+    margin: 0 auto;
+    position: relative;
+    -webkit-transition-property: width, height, -webkit-transform;
+    transition-property: width, height, transform;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.morphsearch.open .morphsearch-form {
+    width: 80%;
+    height: 160px;
+    -webkit-transform: translate3d(0,3em,0);
+    transform: translate3d(0,3em,0);
+}
+
+.morphsearch-input {
+    width: 100%;
+    height: 100%;
+    padding: 0 10% 0 10px;
+    font-weight: 700;
+    border: none;
+    background: transparent;
+    font-size: 0.8em;
+    color: black;
+    -webkit-transition: font-size 0.5s cubic-bezier(0.7,0,0.3,1);
+    transition: font-size 0.5s cubic-bezier(0.7,0,0.3,1);
+}
+
+.morphsearch-input::-ms-clear { /* remove cross in IE */
+    display: none;
+}
+
+.morphsearch.hideInput .morphsearch-input {
+    color: transparent;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+}
+
+.morphsearch.open .morphsearch-input {
+    font-size: 7em;
+}
+
+/* placeholder */
+.morphsearch-input::-webkit-input-placeholder {
+    color: black;
+}
+
+.morphsearch-input:-moz-placeholder {
+    color: #c2c2c2;
+}
+
+.morphsearch-input::-moz-placeholder {
+    color: #c2c2c2;
+}
+
+.morphsearch-input:-ms-input-placeholder {
+    color: #c2c2c2;
+}
+
+/* hide placeholder when active in Chrome */
+.gn-search:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+input[type="search"] { /* reset normalize */
     -webkit-box-sizing: border-box;
-    box-sizing: border-box; /* these settings work in FF, Webkit, and IE8+ */ }
-/* end RESET section - below, contains some reset styles but work in this area */
-
-/* body and general typography, general form, general table styles */
-body { margin: 0; font-size: 14px; line-height: 1.5em; }
-body, button, input, select, textarea { font-family: 'Liberation Sans', sans-serif; color: #222; }
-
-h1, h2, h3, h4, h5, h6 { font-weight: bold; }
-h1 { font-size: 3em; line-height: 1.1em; margin-bottom: .238em; }
-h2 { font-size: 2em; line-height: 1.15em; margin-bottom: .357em; }
-h3 { font-size: 1.5em; line-height: 1.2em; margin-bottom: .476em; }
-a { }
-a:visited { }
-a:hover { }
-a:focus { outline: thin dotted; }
-a:link { -webkit-tap-highlight-color: #FF5E99; }
-/* improve readability when focused & hovered in all browsers: h5bp.com/h */
-a:hover, a:active { outline: 0; }
-b, strong { font-weight: bold; }
-blockquote { margin: 0 24px 1.5em 24px; } /*aaron edited*/
-hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
-/* Redeclare monospace font family: h5bp.com/j */
-pre, code, kbd, samp { font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 1em; }
-pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
-ul, ol { }
-nav ul, nav ol, nav li { list-style: none; list-style-image: none; margin: 0; padding: 0; }
-
-/* typography styles I don't often use and can be deleted if I don't need them */
-abbr[title] { border-bottom: 1px dotted; }
-dfn { font-style: italic; }
-ins { background: #ff9; color: #000; text-decoration: none; }
-mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
-q { quotes: none; }
-q:before, q:after { content: ""; content: none; }
-small { font-size: 85%; }
-sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
-sup { top: -0.5em; }
-sub { bottom: -0.25em; }
-dd { margin: 0 0 0 40px; }
-/* end not often used typography */
-
-/* Colors for form validity */
-input:valid, textarea:valid {  }
-input:invalid, textarea:invalid { background-color: #f0dddd; }
-/* selection styles */
-::selection {background: #c80000; color: #ffffff; text-shadow: none; }
-::-moz-selection {background: #c80000; color: #ffffff; text-shadow: none; }
-img::selection {background: transparent;}
-img::-moz-selection {background: transparent;}
-
-/* LAYOUT, more specific styles */
-
-/* default Wordpress classes added by the editor */
-.alignright { float: right; display: inline; margin: 0 0 12px 12px; }
-.alignleft { float: left; display: inline; margin: 0 12px 12px 0; }
-.center { display: block; margin: 0 auto; }
-
-/* "Grid" stuff - inspired by Less Framework and tweaked into oblivion
- * There are three media query layouts: 768px, 480px, 320px
- * Use these as desired, delete others
- * ------------------------------------- */
-
-/* 960px width
- * .gl and .gs in this layout are actually 2/3 + 1/3, not golden ratio
- */
-.body { padding: 0 24px; width: 960px; margin: 0 auto; }
-.gl /* golden largei = 549 */ { float: left; width: 600px; }
-.gs /* golden small = 339 */ { float: right; width: 288px; }
-.full { width: 912px; }
-.half { float: left; width: 444px; margin-right: 24px; }
-.half:nth-of-type(2n) { margin-right: 0; }
-.third { float: left; width: 288px; margin-right: 24px; }
-.third:nth-of-type(3n) { margin-right: 0; }
-.quarter { float: left; width: 210px; margin-right: 24px; }
-.quarter:nth-of-type(4n) { margin-right: 0; }
-.sixth { float: left; width: 132px; margin-right: 24px; }
-.sixth:nth-of-type(6n) { margin-right: 0; }
-
-/* 768px width - ipad*/
-@media only screen and (max-width: 959px) and (min-width: 768px) {
-	.body { padding: 0 24px; width: 768px; margin: 0 auto; }
-	.gl { float: left; width: 430px; }
-	.gs { float: right; width: 266px; }
-	.full { width: 720px; }
-	.half { float: left; width: 348px; margin-right: 24px; }
-	.half:nth-of-type(2n) { margin-right: 0; }
-	.third, .sixth { float: left; width: 224px; margin-right: 24px; }
-	.third:nth-of-type(3n), .sixth:nth-of-type(3n) { margin-right: 0; }
-	.quarter { float: left; width: 162px; margin-right: 24px; }
-	.quarter:nth-of-type(4n) { margin-right: 0; }
+    box-sizing: border-box;
 }
 
-/* 480px width */
-@media only screen and (max-width: 767px) and (min-width: 480px) {
-    .body { padding: 0 24px; width: 480px; margin: 0 auto; }
-    .gl { float: left; width: 255px; }
-	.gs { float: right; width: 157px; }
-    .full { width: 432px; }
-    .half, .third, .quarter, .sixth { float: left; width: 206px; margin-right: 24px; }
-    .third:nth-of-type(3n) { margin-right: 24px; }
-    .half:nth-of-type(2n), .third:nth-of-type(2n), .quarter:nth-of-type(2n), .sixth:nth-of-type(2n) { margin-right: 0; }
+.morphsearch-input:focus,
+.morphsearch-submit:focus {
+    outline: none;
 }
 
-/* 320px width */
-@media only screen and (max-width: 479px) {
-    .body { padding: 0 24px; width: 320px; margin: 0 auto; }
-    .gl, .gs, .full, .half, .third, .quarter { width: 272px; float: left; margin: 0; }
-    .sixth { float: left; width: 124px; margin-right: 24px; }
-    .sixth:nth-of-type(2n) { margin-right: 0; }
+.morphsearch-submit {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    text-indent: 100px;
+    overflow: hidden;
+    right: 0;
+    top: 40%;
+    background: transparent url(../images/magnifier.svg) no-repeat center center;
+    background-size: 100%;
+    border: none;
+    pointer-events: none;
+    transform-origin: 50% 50%;
+    opacity: 0;
+    -webkit-transform: translate3d(-30px,-50%,0) scale3d(0,0,1);
+    transform: translate3d(-30px,-50%,0) scale3d(0,0,1);
 }
 
-/* end LAYOUT, more specific styles */
+.morphsearch.open .morphsearch-submit {
+    pointer-events: auto;
+    opacity: 1;
+    -webkit-transform: translate3d(-30px,-50%,0) scale3d(1,1,1);
+    transform: translate3d(-30px,-50%,0) scale3d(1,1,1);
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    -webkit-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+}
 
-/* ==|== non-semantic helper classes ========================================
-   Please define your styles before this section.
-   Remember to delete the ones you're not using
-   ========================================================================== */
+.morphsearch-close {
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    overflow: hidden;
+    text-indent: 100%;
+    cursor: pointer;
+    pointer-events: none;
+    opacity: 0;
+    -webkit-transform: scale3d(0,0,1);
+    transform: scale3d(0,0,1);
+}
 
-/* For image replacement */
-.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
-.ir br { display: none; }
+.morphsearch.open .morphsearch-close {
+    opacity: 1;
+    pointer-events: auto;
+    -webkit-transform: scale3d(1,1,1);
+    transform: scale3d(1,1,1);
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    -webkit-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+}
 
-/* Hide from both screenreaders and browsers: h5bp.com/u */
-.hidden { display: none !important; visibility: hidden; }
+.morphsearch-close::before,
+.morphsearch-close::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    border-radius: 3px;
+    opacity: 0.2;
+    background: #000;
+}
 
-/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
-.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.morphsearch-close:hover.morphsearch-close::before,
+.morphsearch-close:hover.morphsearch-close::after {
+    opacity: 1;
+}
 
-/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
-.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+.morphsearch-close::before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
 
-/* Hide visually and from screenreaders, but maintain layout */
-.invisible { visibility: hidden; }
+.morphsearch-close::after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
 
-/* Contain floats: h5bp.com/q */ 
-.clearfix:before, .clearfix:after { content: ""; display: table; }
-.clearfix:after { clear: both; }
-.clearfix { zoom: 1; }
+.morphsearch-content {
+    color: #333;
+    margin-top: 4.5em;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    padding: 0 10.5%;
+    background: #f1f1f1;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+
+}
+
+.morphsearch.open .morphsearch-content {
+    opacity: 1;
+    height: auto;
+    overflow: visible; /* this breaks the transition of the children in FF: https://bugzilla.mozilla.org/show_bug.cgi?id=625289 */
+    pointer-events: auto;
+    -webkit-transition: opacity 0.3s 0.5s;
+    transition: opacity 0.3s 0.5s;
+    position: absolute;
+    overflow: scroll;
+    max-height: 500px;
+}
+
+.dummy-column {
+    width: 30%;
+    padding: 0 0 6em;
+    float: left;
+    opacity: 0;
+    -webkit-transform: translate3d(0,100px,0);
+    transform: translateY(100px);
+    -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.morphsearch.open .dummy-column:first-child {
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+}
+
+.morphsearch.open .dummy-column:nth-child(2) {
+    -webkit-transition-delay: 0.45s;
+    transition-delay: 0.45s;
+}
+
+.morphsearch.open .dummy-column:nth-child(3) {
+    -webkit-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+}
+
+.morphsearch.open .dummy-column {
+    opacity: 1;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+.dummy-column:nth-child(2) {
+    margin: 0 5%;
+}
+
+.dummy-column h2 {
+    font-size: 1em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #c2c2c2;
+    padding: 0.5em 0;
+}
+
+.round {
+    border-radius: 50%;
+}
+
+.dummy-media-object {
+    padding: 0.75em;
+    display: block;
+    margin: 0.3em 0;
+    cursor: pointer;
+    border-radius: 5px;
+    background: rgba(118,117,128,0.05);
+}
+
+.dummy-media-object:hover,
+.dummy-media-object:focus {
+    background: rgba(118,117,128,0.1);
+}
+
+.dummy-media-object img {
+    display: inline-block;
+    width: 50px;
+    margin: 0 10px 0 0;
+    vertical-align: middle;
+}
+
+.dummy-media-object h3 {
+    vertical-align: middle;
+    font-size: 0.85em;
+    display: inline-block;
+    font-weight: 700;
+    margin: 0 0 0 0;
+    width: calc(100% - 70px);
+    color: rgba(145,145,145,0.7);
+}
+
+.dummy-media-object:hover h3 {
+    color: rgba(236,90,98,1);
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+    -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.morphsearch.open ~ .overlay {
+    opacity: 1;
+}
+
+@media screen and (max-width: 53.125em) {
+    .morphsearch-input {
+        padding: 0 25% 0 10px;
+    }
+    .morphsearch.open .morphsearch-input {
+        font-size: 2em;
+    }
+    .dummy-column {
+        float: none;
+        width: auto;
+        padding: 0 0 2em;
+    }
+    .dummy-column:nth-child(2) {
+        margin: 0;
+    }
+    .morphsearch.open .morphsearch-submit {
+        -webkit-transform: translate3d(0,-50%,0) scale3d(0.5,0.5,1);
+        transform: translate3d(0,-50%,0) scale3d(0.5,0.5,1);
+    }
+}
+
+@media screen and (max-width: 60.625em) {
+    .morphsearch {
+        width: 80%;
+        top: 10%;
+        right: 10%;
+    }
+}
+nav ul a,
+nav .brand-logo {
+    color: #444;
+}
+
+p {
+    line-height: 2rem;
+}
+
+.button-collapse {
+    color: #ee6e73;
+}
+
+.parallax-container {
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255,255,255,.9);
+}
+.parallax-container .section {
+    width: 100%;
+}
+
+@media only screen and (max-width : 992px) {
+    .parallax-container .section {
+        position: absolute;
+        top: 40%;
+    }
+    #index-banner .section {
+        top: 10%;
+    }
+}
+
+@media only screen and (max-width : 600px) {
+    #index-banner .section {
+        top: 0;
+    }
+}
+
+
+.icon-block {
+    padding: 0 15px;
+}
+
+footer.page-footer {
+    margin: 0;
+}
+
+
+
+
+.parallax img
+{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax-container
+{
+    color: black;
+}
+@media only screen and (max-width : 600px) {
+    .parallax-container
+    {
+        color: white;
+    }
+}
+nav a.button-collapse
+{
+    color:black;
+}
+.purple.lighten-1 {
+    background-color: #CC0066 !important;
+}
+.teal-text.text-lighten-2 {
+    color: #CC0066 !important;
+}
+.share-buttons{
+    list-style: none;
+}
+
+.share-buttons li{
+    display: inline;
+}
+nav
+{
+    overflow: visible;
+}
+nav li a {
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+.morphsearch.open{
+  background: #f1f1f1 !important;
+}
+.morphsearch.open .morphsearch-input {
+  height: 12rem !important;
+  background: #f1f1f1 !important;
+}
+.morphsearch.open .morphsearch-form{
+  height: 225px !important;
+  background: #f1f1f1 !important;
+}
+.morphsearch {
+  min-height: 200px !important;
+}
+.morphsearch form input[type=search]{
+  border-bottom: none !important;
+}
+.morphsearch-content {
+    color: #333;
+    margin-top: -0.5em !important;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    padding: 0 10.5%;
+    background: #f1f1f1;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+.morphsearch {
+  color:black;
+    width: 150px;
+    min-height: 40px;
+    background: transparent;
+    position: absolute;
+    z-index: 10000;
+    top: 5px;
+    left: 20px;
+    -webkit-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+    -webkit-transition-property: min-height, width, top, right;
+    transition-property: min-height, width, top, right;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+.morphsearch input[type=search] {
+  /* background-color: transparent; */
+  border: none;
+  border-bottom: none !important;
+  outline: none;
+  height: 4rem;
+  width: 100%;
+  font-size: 2rem;
+  margin: 0 0 15px 0;
+  padding: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s
+}
+#seach-container{
+  float: right !important;
+  width: 20% !important;
+  padding: 0 !important;
+}
+.parallax-container {
+     min-height: 200px;
+}
+nav ul li {
+  height: 64px;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  -ms-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  float: left;
+  padding: 0px;
+}
