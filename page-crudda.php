@@ -1,12 +1,12 @@
 <?php
 /*
-Template Name: home
+Template Name: crudda
 */
 ?>
 
 <?php get_header(); ?>
 
- <?php if (has_post_thumbnail( $post->ID ) ): ?>
+<?php if (has_post_thumbnail( $post->ID ) ): ?>
 <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
 <?php endif; ?>
 
@@ -26,20 +26,15 @@ Template Name: home
         <?php query_posts(array('post_type' => 'post')); ?>
         <?php while ( have_posts() ) : the_post(); ?> <!--  the Loop -->
               <div style="height: 200px;" class="parallax-container">
-                <h1 class="header center teal-text text-lighten-2"><?php the_title() ?></h1>
                  <div class="parallax">
                    <img src="<?php the_post_thumbnail() ?>">
                  </div>
                </div>
-
-              <p><?php the_excerpt() ?></p>
+              <h1 class="header center teal-text text-lighten-2"><?php the_title() ?></h1>
+              <?php echo substr(the_excerpt(), 0, 20);?>
               <a class="btn waves-effect orange " href="<?php the_permalink() ?>">Läs mer</a>
         <?php endwhile; ?><!--  End the Loop -->
-
-
         <div class="divider"></div>
-
-
     </div>
     <div class="col l3">
         <div id="aside">

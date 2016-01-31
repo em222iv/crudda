@@ -610,7 +610,7 @@ nav li a {
   padding: 0 !important;
 }
 .parallax-container {
-     min-height: 200px;
+     min-height: 100px;
 }
 nav ul li {
   height: 64px;
