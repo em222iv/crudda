@@ -25,14 +25,42 @@ Template Name: crudda
           <div class="divider"></div>
         <?php query_posts(array('post_type' => 'post')); ?>
         <?php while ( have_posts() ) : the_post(); ?> <!--  the Loop -->
-              <div style="height: 200px;" class="parallax-container">
+          <div class="card">
+                <div class="card-header">
+                    <div class="card-header-mask">
+                        <div class="card-header-date">
+                            <div class="card-header-date-day">12</div>
+                            <div class="card-header-date-month">May</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-body-header">
+                        <div class="card-body-header-category">Photos</div>
+                        <h1>True Paradise on Earth: Unknown Place</h1>
+                        <p class="card-body-header-sentence">
+                            They call it <span>"</span>God's Own Country.<span>"</span>
+                        </p>
+                    </div>
+                    <p class="card-body-description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Molestias autem aliquid, recusandae maiores iste fuga,
+                        explicabo dolor vitae magnam!
+                    </p>
+                    <div class="card-body-footer">
+                        <i class="icon icon-time"></i> 6min. read
+                        <i class="icon icon-comment"></i> 39 comments
+                    </div>
+                </div>
+            </div>
+              <!-- <div style="height: 200px;" class="parallax-container">
                  <div class="parallax">
                    <img src="<?php the_post_thumbnail() ?>">
                  </div>
                </div>
               <h1 class="header center teal-text text-lighten-2"><?php the_title() ?></h1>
               <?php echo substr(the_excerpt(), 0, 20);?>
-              <a class="btn waves-effect orange " href="<?php the_permalink() ?>">Läs mer</a>
+              <a class="btn waves-effect orange " href="<?php the_permalink() ?>">Läs mer</a> -->
         <?php endwhile; ?><!--  End the Loop -->
         <div class="divider"></div>
     </div>
