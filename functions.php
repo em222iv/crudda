@@ -82,10 +82,8 @@
         'name' => 'Sidebar Widgets',
         'id'   => 'sidebar-widget-area',
         'description'   => 'These are widgets for the sidebar.',
-        'before_widget' => '  <div class="card">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<div class="card-image"><img src="//placehold.it/800x450/FF9800/EE00BB"><h5>',
-        'after_title'   => '</h5></div>',
+        'before_widget' => '  <div class="card"><div class="card-image"><img src="//placehold.it/800x250/FF9800/EE00BB">',
+        'after_widget'  => '</div></div>'
     ));
 
     // register_sidebar(array(

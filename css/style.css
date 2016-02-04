@@ -626,7 +626,7 @@ nav ul li {
   padding: 0px;
 }
 html, body, div, span, applet, object, iframes,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+h1, h2, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, sub, sup, tt, var,
@@ -738,7 +738,7 @@ body {
     background-color: rgba(0, 0, 0, .6);
 }
 
-.card-header-date, .card-body-header-category {
+.card-header-date,.card-header-button, .card-body-header-category {
     text-transform: uppercase;
     background-color: #EF5A31;
     color: #FFF;
@@ -764,6 +764,15 @@ body {
     width:70px;
     height:70px;
     line-height: 15px;
+}
+.card-header-button {
+    float: left;
+    margin: 20px 20px 0 20px;
+    border-radius: 50%;
+    font-weight: bold;
+    width:70px;
+    height:70px;
+    line-height: 30px;
 }
 
 .card-header-date-day {
@@ -862,6 +871,9 @@ h1 {
     height: 17px;
     background: url(../images/icon-time.png) no-repeat;
 }
+.widgettitle {
+  display:none;
+}
 
 .icon-comment {
     margin-top: -2px;
@@ -869,4 +881,10 @@ h1 {
     width: 14px;
     height: 14px;
     background: url(../images/icon-comment.png) no-repeat;
+}
+cat-item {
+  text-align: center !important;
+}
+.card-image ul {
+    padding: 10px 0 10px 20px;
 }

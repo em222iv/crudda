@@ -21,35 +21,37 @@ Template Name: crudda
 <div class="container">
   <div class="row">
     <div class="col l9">
-        <h3>Senaste inläggen</h3>
+        <h3>Senaste inläggenaaaa</h3>
           <div class="divider"></div>
+          <div class="wrapper">
         <?php query_posts(array('post_type' => 'post')); ?>
         <?php while ( have_posts() ) : the_post(); ?> <!--  the Loop -->
           <div class="card">
-                <div class="card-header">
+                <?php $feat_image_url = wp_get_attachment_url( get_post_thumbnail_id() ); ?>
+
+                <div class="card-header" <?php echo ' style="background-image:url('.$feat_image_url.'); background-size: cover; background-position: center;">';?>
                     <div class="card-header-mask">
                         <div class="card-header-date">
-                            <div class="card-header-date-day">12</div>
-                            <div class="card-header-date-month">May</div>
+                            <div class="card-header-date-day"><?php the_time('j'); ?></div>
+                            <div class="card-header-date-month"><?php the_time('F'); ?></div>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="card-body-header">
                         <div class="card-body-header-category">Photos</div>
-                        <h1>True Paradise on Earth: Unknown Place</h1>
+                        <h1><?php the_title(); ?></h1>
                         <p class="card-body-header-sentence">
                             They call it <span>"</span>God's Own Country.<span>"</span>
                         </p>
                     </div>
                     <p class="card-body-description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Molestias autem aliquid, recusandae maiores iste fuga,
-                        explicabo dolor vitae magnam!
+                      <?php echo substr(the_excerpt(), 0, 20);?>
                     </p>
                     <div class="card-body-footer">
-                        <i class="icon icon-time"></i> 6min. read
-                        <i class="icon icon-comment"></i> 39 comments
+                        <?php $my_var = get_comments_number( $post_id ); ?>
+                        <i class="icon icon-time"></i> <?php the_tags('<span>Tags:</span> ', ', ', ''); ?>
+                        <i class="icon icon-comment"></i> <?php echo $my_var ?> comments
                     </div>
                 </div>
             </div>
@@ -62,6 +64,7 @@ Template Name: crudda
               <?php echo substr(the_excerpt(), 0, 20);?>
               <a class="btn waves-effect orange " href="<?php the_permalink() ?>">Läs mer</a> -->
         <?php endwhile; ?><!--  End the Loop -->
+          </div>
         <div class="divider"></div>
     </div>
     <div class="col l3">

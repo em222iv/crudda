@@ -23,7 +23,7 @@
 			</section>
 			<footer>
 				<p><?php the_tags('<span>Tags:</span> ', ', ', ''); ?></p>
-				<p><span>Posted in</span> <?php the_category(', ') ?> |
+				<p><span>Posted in</span> <?php the_category('<div class="dfs">',',','</div>') ?> |
 				<?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></p>
 				<?php comments_template(); ?>
 			</footer>

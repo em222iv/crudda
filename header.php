@@ -47,7 +47,7 @@
 	<div class="navbar-fixed">
 	    <nav class="orange">
 	        <div class="nav-wrapper container">
-	            <a href="#!" class="brand-logo"><?php echo get_bloginfo('name'); ?></a>
+	            <a href="/<?php get_home_url(); ?>" class="brand-logo"><?php echo get_bloginfo('name'); ?></a>
 	            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 	            <ul class="right hide-on-med-and-down">
 	                <li><a href="#modalLogin" class="modal-trigger"><i class="mdi-action-perm-identity"></i></a></li>

@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: crudda
+Template Name:
 */
 ?>
 
@@ -25,35 +25,43 @@ Template Name: crudda
           <div class="divider"></div>
           <div class="wrapper">
         <?php query_posts(array('post_type' => 'post')); ?>
-        <?php while ( have_posts() ) : the_post(); ?> <!--  the Loop -->
+        <?php while ( have_posts() ) : the_post(); ?>
           <div class="card">
                 <?php $feat_image_url = wp_get_attachment_url( get_post_thumbnail_id() ); ?>
-
-                <div class="card-header" <?php echo ' style="background-image:url('.$feat_image_url.'); background-size: cover; background-position: center;">';?>
+                <div class="card-header" <?php echo 'style="background-image:url('.$feat_image_url.'); background-size: cover; background-position: center;"'?> >
                     <div class="card-header-mask">
                         <div class="card-header-date">
                             <div class="card-header-date-day"><?php the_time('j'); ?></div>
                             <div class="card-header-date-month"><?php the_time('F'); ?></div>
                         </div>
+                        <a class="" href="<?php the_permalink() ?>">
+                          <div class="card-header-button">
+                              <div class="card-header-date-day">Läs</div>
+                          </div>
+                      </a>
                     </div>
                 </div>
-                <div class="card-body">
-                    <div class="card-body-header">
-                        <div class="card-body-header-category">Photos</div>
-                        <h1><?php the_title(); ?></h1>
-                        <p class="card-body-header-sentence">
-                            They call it <span>"</span>God's Own Country.<span>"</span>
-                        </p>
-                    </div>
-                    <p class="card-body-description">
-                      <?php echo substr(the_excerpt(), 0, 20);?>
-                    </p>
-                    <div class="card-body-footer">
-                        <?php $my_var = get_comments_number( $post_id ); ?>
-                        <i class="icon icon-time"></i> <?php the_tags('<span>Tags:</span> ', ', ', ''); ?>
-                        <i class="icon icon-comment"></i> <?php echo $my_var ?> comments
-                    </div>
-                </div>
+                    <div class="card-body">
+                        <!-- <a class="" href="<?php the_permalink() ?>"> -->
+                          <div class="card-body-header">
+                              <div class="card-body-header-category">Photo Text</div>
+                            <h1><?php the_title(); ?></h1>
+                             <div class="card-body-header-sentence">
+                                    	<i class="mdi-hardware-keyboard-arrow-up pull-left"></i>
+                              </div>
+                          </div>
+                            <!-- </a> -->
+                          <div class="card-body-description">
+                            <?php echo substr(the_excerpt(), 0, 20);?>
+                          </div>
+                          <div class="card-body-footer">
+                              <?php $my_var = get_comments_number( $post_id ); ?>
+                              <i class="icon icon-comment"></i> <?php echo $my_var ?> comments
+                              <i style="float:right" > Kategorier: <?php the_category(' ') ?></i>
+                          </div>
+
+                  </div>
+
             </div>
               <!-- <div style="height: 200px;" class="parallax-container">
                  <div class="parallax">
