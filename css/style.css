@@ -575,7 +575,7 @@ nav li a {
     position: absolute;
     z-index: 10000;
     top: 5px;
-    left: 20px;
+    left: 0px;
     -webkit-transform-origin: 100% 0;
     transform-origin: 100% 0;
     -webkit-transition-property: min-height, width, top, right;
