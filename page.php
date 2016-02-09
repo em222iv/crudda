@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name:
+Template Name: Crudda
 */
 ?>
 
@@ -11,7 +11,7 @@ Template Name:
 <?php endif; ?>
 
 </div><!-- end #category-name -->
-
+<section class="body page">
 <div class="content">
       <div id="large-header" style="background-image: url('<?php echo $image[0]; ?>')" class="large-header">
           <canvas id="demo-canvas"></canvas>
@@ -44,45 +44,47 @@ Template Name:
                     <div class="card-body">
                         <!-- <a class="" href="<?php the_permalink() ?>"> -->
                           <div class="card-body-header">
-                              <div class="card-body-header-category">Photo Text</div>
+                              <div class="card-body-header-category">
+                                   <?php $thumb_img = get_post( get_post_thumbnail_id() ) ?>
+                                   <?php if ( $thumb_img->post_excerpt ) : ?>
+                                      <div id="image-caption">
+                                        <?php echo $thumb_img->post_excerpt; ?>
+                                      </div>
+                                    <?php else : ?>
+                                        <div id="image-caption">
+                                          <?php echo "</br>" ?>
+                                        </div>
+                                      <?php endif ; ?>
+                              </div>
                             <h1><?php the_title(); ?></h1>
                              <div class="card-body-header-sentence">
-                                    	<i class="mdi-hardware-keyboard-arrow-up pull-left"></i>
+                                    	<i class="fa fa-arrow-circle-up"></i>
                               </div>
                           </div>
                             <!-- </a> -->
                           <div class="card-body-description">
-                            <?php echo substr(the_excerpt(), 0, 20);?>
+                            <?php echo substr(get_the_excerpt(), 0, 200);?>
                           </div>
                           <div class="card-body-footer">
                               <?php $my_var = get_comments_number( $post_id ); ?>
                               <i class="icon icon-comment"></i> <?php echo $my_var ?> comments
                               <i style="float:right" > Kategorier: <?php the_category(' ') ?></i>
                           </div>
-
                   </div>
-
             </div>
-              <!-- <div style="height: 200px;" class="parallax-container">
-                 <div class="parallax">
-                   <img src="<?php the_post_thumbnail() ?>">
-                 </div>
-               </div>
-              <h1 class="header center teal-text text-lighten-2"><?php the_title() ?></h1>
-              <?php echo substr(the_excerpt(), 0, 20);?>
-              <a class="btn waves-effect orange " href="<?php the_permalink() ?>">Läs mer</a> -->
         <?php endwhile; ?><!--  End the Loop -->
           </div>
         <div class="divider"></div>
     </div>
     <div class="col l3">
         <div id="aside">
-            <h3>Aside</h3>
+            <h3>Arkiv</h3>
               <div class="divider"></div>
             <?php get_sidebar(); ?>
         </div>
     </div>
   </div>
+</div>
 </div>
 	<!-- <section class="body page">
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>

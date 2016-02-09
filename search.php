@@ -1,28 +1,60 @@
 <?php get_header(); ?>
 	<section class="body search">
 		<?php if (have_posts()) : ?>
-			<h1 class="pagetitle">Search Results</h1>
+		<div class="container">
+		  <div class="row">
+		    <div class="col 10 offset-2">
+						<h1 class="pagetitle">Sökresultat</h1>
 			<?php while (have_posts()) : the_post(); ?>
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
-			<header>
-				<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-				<p> <!-- edit this meta stuff? -->
-					<span>Posted on:</span> <?php the_time('F jS, Y'); ?>
-					<span>by</span> <?php the_author(); ?> |
-					<?php comments_popup_link('No Comments', '1 Comment', '% Comments', 'comments-link', ''); ?>
-				</p>
-			</header>
-			<section>
-				<?php the_excerpt(); ?>
-			</section>
+			<div class="card">
+						<?php $feat_image_url = wp_get_attachment_url( get_post_thumbnail_id() ); ?>
+						<div class="card-header" <?php echo 'style="background-image:url('.$feat_image_url.'); background-size: cover; background-position: center;"'?> >
+								<div class="card-header-mask">
+										<div class="card-header-date">
+												<div class="card-header-date-day"><?php the_time('j'); ?></div>
+												<div class="card-header-date-month"><?php the_time('F'); ?></div>
+										</div>
+										<a class="" href="<?php the_permalink() ?>">
+											<div class="card-header-button">
+													<div class="card-header-date-day">Läs</div>
+											</div>
+									</a>
+								</div>
+						</div>
+								<div class="card-body">
+										<!-- <a class="" href="<?php the_permalink() ?>"> -->
+											<div class="card-body-header">
+													<div class="card-body-header-category">
+															 <?php $thumb_img = get_post( get_post_thumbnail_id() ) ?>
+															 <?php if ( $thumb_img->post_excerpt ) : ?>
+																	<div id="image-caption">
+																		<?php echo $thumb_img->post_excerpt; ?>
+																	</div>
+																<?php else : ?>
+																		<div id="image-caption">
+																			<?php echo "Post Picture" ?>
+																		</div>
+																	<?php endif ; ?>
+													</div>
+												<h1><?php the_title(); ?></h1>
+												 <div class="card-body-header-sentence">
+																	<i class="fa fa-arrow-circle-up"></i>
+													</div>
+											</div>
+												<!-- </a> -->
+											<div class="card-body-description">
+												<?php echo substr(get_the_excerpt(), 0, 200);?>
+											</div>
+											<div class="card-body-footer">
+													<?php $my_var = get_comments_number( $post_id ); ?>
+													<i class="icon icon-comment"></i> <?php echo $my_var ?> comments
+													<i style="float:right" > Kategorier: <?php the_category(' ') ?></i>
+											</div>
+							</div>
+				</div>
 		</article>
 		<?php endwhile; ?>
-		<!-- <nav class="pagination">
-			<ul>
-				<li><?php next_posts_link('&laquo; Older Entries') ?></li>
-				<li><?php previous_posts_link('Newer Entries &raquo;') ?></li>
-			</ul>
-		</nav> -->
 		<?php else : ?>
 		<article>
 			<header>
@@ -30,6 +62,8 @@
 			</header>
 		</article>
 		<?php endif; ?>
-
+		</div>
+		</div>
+		</div>
 	</section>
 <?php get_footer(); ?>

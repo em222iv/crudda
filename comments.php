@@ -1,78 +1,76 @@
 <?php
-	if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
-		die ('Please do not load this page directly. Thanks!');
-	if ( post_password_required() ) { ?>
-		This post is password protected. Enter the password to view comments.
-	<?php
-		return;
-	}
-	/* This variable is for alternating comment background */
-    $oddcomment = 'alt';
+/**
+ * The template for displaying comments.
+ *
+ * The area of the page that contains both current comments
+ * and the comment form.
+ *
+ * @package WP-Materialize
+ */
+/*
+ * If the current post is protected by a password and
+ * the visitor has not yet entered the password we will
+ * return early without loading the comments.
+ */
+if ( post_password_required() ) {
+	return;
+}
 ?>
 
-<!-- you can start editing here -->
-<section class="comments" id="comments">
-<?php if ($comments) : ?>
-    <h2>
-        <?php comments_number('There are not any comments on this article yet.',
-                              'Here is the comment on this article!',
-                              'Here are the comments on this article!' ); ?>
-    </h2>
-    <?php $counter = 1; ?>
-    <?php foreach ($comments as $comment) : ?>
-    <article class="<?php echo $oddcomment; ?>">
-        <header>
-            <span class="number"><?php echo $counter; ?></span>
-            <?php echo get_avatar( $comment, $size = '64' ); ?>
-            <h3><?php comment_author_link(); ?></h3>
-            <p>
-                Comment left on:<br />
-                <?php comment_date('F jS, Y'); ?> at <?php comment_time('g:i a'); ?>
-            </p>
-        </header>
-        <?php if ($comment->comment_approved == '0') : ?>
-        <em>Your comment is awaiting moderation.</em>
-        <?php endif; ?>
-        <?php comment_text(); ?>
-    </article>
-    <?php /* Changes every other comment to a different class */	
-        if ('alt' == $oddcomment) { $oddcomment = ''; }
-        else { $oddcomment = 'alt'; }
-        //increment the counter
-        $counter = $counter + 1;
-    ?>
-    <?php endforeach; /* end for each comment */ ?>
-        
-<?php else : // this is displayed if there are no comments so far ?>
-    <?php if ('open' == $post->comment_status) : ?> 
-        <!-- If comments are open, but there are no comments. -->
-    <?php else : // comments are closed ?>
-        <!-- If comments are closed. -->
-        <p class="nocomments">Comments are closed.</p>
-    <?php endif; ?>
-<?php endif; ?>
-    
-<?php if ('open' == $post->comment_status) : ?>
-    <h2 id="respond">Leave your own comment!</h2>
-    <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
-        <fieldset>
-            <?php if ( $user_ID ) : ?>
-            <label>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Log out of this account">Logout &raquo;</a></label>
-            <?php else : ?>
-            <label for="author">Your Name (required):</label>
-            <input name="author" id="author" value="<?php echo $comment_author; ?>" />
-            <label for="email">Email Address (required, but will not be displayed):</label>
-            <input name="email" id="email" value="<?php echo $comment_author_email; ?>" />
-            <label for="url">Website:</label>
-            <input name="url" id="url" value="<?php echo $comment_author_url; ?>" />
-            <?php endif; ?>
-            <!--<p><small><strong>XHTML:</strong> You can use these tags: <?php echo allowed_tags(); ?></small></p>-->
-            <label for="comment">Leave a message:</label>
-            <textarea name="comment" id="comment"></textarea>
-            <input name="submit" type="submit" id="submit" value="Leave your comment" />
-            <input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" />
-            <?php do_action('comment_form', $post->ID); ?>
-        </fieldset>
-    </form>
-</section>
-<?php endif; // if you delete this the sky will fall on your head ?>
+<div id="comments" class="comments-area">
+
+	<?php // You can start editing here -- including this comment! ?>
+
+	<?php if ( have_comments() ) : ?>
+		<h2 class="comments-title">
+			<?php
+				printf( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'wpmtd' ),
+					number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
+			?>
+		</h2>
+
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
+		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
+			<h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'wpmtd' ); ?></h2>
+			<div class="nav-links">
+
+				<div class="nav-previous"><?php previous_comments_link( __( 'Older Comments', 'wpmtd' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments', 'wpmtd' ) ); ?></div>
+
+			</div><!-- .nav-links -->
+		</nav><!-- #comment-nav-above -->
+		<?php endif; // check for comment navigation ?>
+
+		<ol class="comment-list">
+			<?php
+				wp_list_comments( array(
+					'style'      => 'ol',
+					'short_ping' => true,
+				) );
+			?>
+		</ol><!-- .comment-list -->
+
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
+		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
+			<h2 class="screen-reader-text"><?php _e( 'Comment navigation', 'wpmtd' ); ?></h2>
+			<div class="nav-links">
+
+				<div class="nav-previous"><?php previous_comments_link( __( 'Older Comments', 'wpmtd' ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( __( 'Newer Comments', 'wpmtd' ) ); ?></div>
+
+			</div><!-- .nav-links -->
+		</nav><!-- #comment-nav-below -->
+		<?php endif; // check for comment navigation ?>
+
+	<?php endif; // have_comments() ?>
+
+	<?php
+		// If comments are closed and there are comments, let's leave a little note, shall we?
+		if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
+	?>
+		<p class="no-comments"><?php _e( 'Comments are closed.', 'wpmtd' ); ?></p>
+	<?php endif; ?>
+
+	<?php comment_form(); ?>
+
+</div><!-- #comments -->

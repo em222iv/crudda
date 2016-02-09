@@ -1,0 +1,9 @@
+{
+    "type": "sftp",
+    "host": "ssh.eerie.se",
+    "username": "eerie.se",
+    "password": "90PrmbmeM10sftp",
+    "port": 22,
+    "remotePath": "/www/crudda/wp-content/themes/crudda/",
+    "uploadOnSave": true
+}

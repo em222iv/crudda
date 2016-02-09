@@ -1,37 +1,28 @@
 <?php get_header(); ?>
 
-
+<?php if (has_post_thumbnail( $post->ID ) ): ?>
+<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
+<?php endif; ?>
 	<section >
-		<div class="row">
-				<div class="col s8 offset-s2">
-		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-			<header>
-				<div style="font-family: Quasiparticles;" class="">
-						<h1><?php the_title(); ?></h1>
-				</div>
-
-				<p>
-					<span>Posted on:</span> <?php the_time('F jS, Y'); ?>
-					<span>by</span> <?php the_author(); ?> |
-					<?php comments_popup_link('No Comments', '1 Comment', '% Comments', 'comments-link', ''); ?>
-				</p>
-			</header>
-			<section>
-				<?php the_title(); ?>
-				<?php the_content(); ?>
-			</section>
-			<footer>
-				<p><?php the_tags('<span>Tags:</span> ', ', ', ''); ?></p>
-				<p><span>Posted in</span> <?php the_category('<div class="dfs">',',','</div>') ?> |
-				<?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></p>
-				<?php comments_template(); ?>
-			</footer>
+		<div style="height: 300px;" class="parallax-container">
+					<div class="parallax">
+						<img src="<?php echo $image[0];?>">
+			</div>
 		</div>
-	</div>
 
+		<div class="container col s12 m9 l10">
+			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+				<div id="materialbox" class="scrollspy section">
+					<div style="font-family: Quasiparticles;" class="">
+							<h2><?php the_title(); ?></h2>
+					</div>
+
+						<section>
+							<?php the_title(); ?>
+							<?php the_content(); ?>
+						</section>
+				</div>
 		<?php endwhile; ?>
-
 	</div>
 		<?php else : ?>
 		<article>
@@ -42,22 +33,3 @@
 		<?php endif; ?>
 	</section>
 <?php get_footer(); ?>
-
-<!-- <header>
-	<h1><?php the_title(); ?></h1>
-	<p>
-		<span>Posted on:</span> <?php the_time('F jS, Y'); ?>
-		<span>by</span> <?php the_author(); ?> |
-		<?php comments_popup_link('No Comments', '1 Comment', '% Comments', 'comments-link', ''); ?>
-	</p>
-</header>
-<section>
-	<?php the_content(); ?>
-</section>
-<footer>
-	<p><?php the_tags('<span>Tags:</span> ', ', ', ''); ?></p>
-	<p><span>Posted in</span> <?php the_category(', ') ?> |
-	<?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></p>
-	<?php comments_template(); ?>
-</footer>
-</article> -->

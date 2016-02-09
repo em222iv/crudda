@@ -76,7 +76,12 @@
     if (!is_admin()) {
         add_filter('widget_text', 'do_shortcode', 11);
     }
-
+    function remove_comment_fields($fields) {
+        unset($fields['email']);
+        unset($fields['url']);
+        return $fields;
+    }
+    add_filter('comment_form_default_fields', 'remove_comment_fields');
 	// sidebars / widget areas: I have one in the header, nav, sidebar, and footer
     register_sidebar(array(
         'name' => 'Sidebar Widgets',
@@ -86,34 +91,13 @@
         'after_widget'  => '</div></div>'
     ));
 
-    // register_sidebar(array(
-    //     'name' => 'Search Widget Area',
-    //     'id'   => 'Search-widget-area',
-    //     'description'   => 'These are widgets for the Navigation area (use a menu!).',
-    //     'before_widget' => '',
-    //     'after_widget'  => '',
-    //     'before_title'  => '',
-    //     'className'   => 'aa'
-    // ));
-
-    // register_sidebar(array(
-    //     'name' => 'Header Widget Area',
-    //     'id'   => 'header-widget-area',
-    //     'description'   => 'These are widgets for the header.',
-    //     'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    //     'after_widget'  => '</div>',
-    //     'before_title'  => '', // use h3's here?
-    //     'after_title'   => ''
-    // ));
-    //
-    // register_sidebar(array(
-    //     'name' => 'Footer Widget Area',
-    //     'id'   => 'footer-widget-area',
-    //     'description'   => 'These are widgets for the footer.',
-    //     'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    //     'after_widget'  => '</div>',
-    //     'before_title'  => '<h3>',
-    //     'after_title'   => '</h3>'
-    // ));
+    register_sidebar(array(
+        'name' => 'Left Footer Widget',
+        'id'   => 'Left-Footer-Area',
+        'description'   => 'Skriv text som ska sitta till vänster i footern',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',
+    ));
 
 ?>

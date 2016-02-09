@@ -20,6 +20,7 @@
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?>: Feed" href="<?php bloginfo('rss2_url'); ?>" />
 
@@ -72,7 +73,7 @@
 	    <div class="nav-wrapper container">
 	      <div id="morphsearch" class="morphsearch">
 	     <form class="morphsearch-form">
-	       <input class="morphsearch-input" value="<?php echo get_search_query() ?>" name="s" type="search"  placeholder="<?php echo esc_attr_x( 'Search …', 'placeholder' ) ?>"/>
+	       <input class="morphsearch-input" value="<?php echo get_search_query() ?>" name="s" type="search"  placeholder="<?php echo esc_attr_x( 'Sök …', 'placeholder' ) ?>"/>
 				 <input type="submit"  class="morphsearch-submit" value="<?php echo esc_attr_x( 'Search', 'submit button' ) ?>" />
 	     </form>
 	     <div class="morphsearch-content">
