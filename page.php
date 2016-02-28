@@ -18,7 +18,7 @@ Template Name: Crudda
           <h1 class="main-title"><?php echo get_the_title(); ?></span></h1>
       </div>
 </div>
-<div class="container">
+<div id="main-container" class="container">
   <div class="row">
     <div class="col l9">
         <h3>Senaste inläggen</h3>
@@ -67,7 +67,7 @@ Template Name: Crudda
                           </div>
                           <div class="card-body-footer">
                               <?php $my_var = get_comments_number( $post_id ); ?>
-                              <i class="icon icon-comment"></i> <?php echo $my_var ?> comments
+                              <i class="icon icon-comment"></i> <?php echo $my_var ?> comments |
                               <i style="float:right" > Kategorier: <?php the_category(' ') ?></i>
                           </div>
                   </div>

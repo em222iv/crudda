@@ -110,5 +110,11 @@
 	</script>
 	<script src="<?php bloginfo('template_url'); ?>/javascript/rAF.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/javascript/demo-2.js"></script>
+  <script>
+    // For Demo purposes only
+    [].slice.call( document.querySelectorAll('nav > a') ).forEach( function(el) {
+      el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
+    } );
+  </script>
 </body>
 </html>

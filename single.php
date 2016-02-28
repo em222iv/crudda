@@ -23,6 +23,11 @@
 						</section>
 				</div>
 		<?php endwhile; ?>
+	<!-- <?php $prevPost = get_previous_post(true);
+		  $prevThumbnail = get_the_post_thumbnail($prevPost->ID, array(150,150) );
+		  echo $nextthumbnail; ?><?php previous_post_link( '%link', $prevThumbnail );
+		?> -->
+
 	</div>
 		<?php else : ?>
 		<article>

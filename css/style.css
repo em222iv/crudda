@@ -321,6 +321,11 @@ input[type="search"] { /* reset normalize */
     -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
     transition: transform 0.5s, opacity 0.5s;
 }
+.dummy-media-object {
+  display: block;
+  border-radius: 10px;
+  padding: 10px;
+}
 
 .morphsearch.open .dummy-column:first-child {
     -webkit-transition-delay: 0.4s;
@@ -392,6 +397,7 @@ input[type="search"] { /* reset normalize */
     margin: 0 0 0 0;
     width: calc(100% - 70px);
     color: rgba(145,145,145,0.7);
+    line-height: 1.212rem;
 }
 
 .dummy-media-object:hover h3 {
@@ -448,7 +454,7 @@ input[type="search"] { /* reset normalize */
 }
 nav ul a,
 nav .brand-logo {
-    color: #444;
+    color: #FFFFFF;
 }
 
 p {
@@ -660,7 +666,7 @@ body {
     position: absolute;
     text-align: center;
     line-height: 18px;
-    z-index: 10;
+    z-index: 6;
     bottom: 0;
     left: 50%;
     transform: -webkit-translate(-50%, -50%);
@@ -843,7 +849,7 @@ h1 {
 
 .card-body-footer {
     position: relative;
-    z-index: 10;
+    z-index: 9;
     margin-top: 14px;
     font-size: 14px;
     color: #9FA5A8;
@@ -953,4 +959,58 @@ cat-item {
     font-size: 19px;
     min-height: 21px;
     }
+    li .modal-trigger {
+      margin-left:70px;
+    }
 }
+
+
+/*Comment Output*/
+
+.commentlist .reply {}
+.commentlist .reply a {}
+
+.commentlist .alt {}
+.commentlist .odd {}
+.commentlist .even {}
+.commentlist .thread-alt {}
+.commentlist .thread-odd {}
+.commentlist .thread-even {}
+.commentlist li ul.children .alt {}
+.commentlist li ul.children .odd {}
+.commentlist li ul.children .even {}
+
+.commentlist .vcard {}
+.commentlist .vcard cite.fn {}
+.commentlist .vcard span.says {}
+.commentlist .vcard img.photo {}
+.commentlist .vcard img.avatar {}
+.commentlist .vcard cite.fn a.url {}
+
+.commentlist .comment-meta {}
+.commentlist .comment-meta a {}
+.commentlist .commentmetadata {}
+.commentlist .commentmetadata a {}
+
+.commentlist .parent {}
+.commentlist .comment {}
+.commentlist .children {}
+.commentlist .pingback {}
+.commentlist .bypostauthor {}
+.commentlist .comment-author {}
+.commentlist .comment-author-admin {}
+
+.commentlist {}
+.commentlist li {}
+.commentlist li p {}
+.commentlist li ul {}
+.commentlist li ul.children li {}
+.commentlist li ul.children li.alt {}
+.commentlist li ul.children li.byuser {}
+.commentlist li ul.children li.comment {}
+.commentlist li ul.children li.depth-{id} {}
+.commentlist li ul.children li.bypostauthor {}
+.commentlist li ul.children li.comment-author-admin {}
+
+#cancel-comment-reply {}
+#cancel-comment-reply a {}
